@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/JSAN.js"> </script>
+
+  </head>
+  <body>
+    <pre id="test"></pre>
+
+    <script type="text/javascript">
+JSAN.includePath = ["../lib", "lib"];
+JSAN.use("Memoize");
+JSAN.use("Test.More");
+
+/*
+ Recursive definition of ackermann function refers to
+ http://en.wikipedia.org/wiki/Ackermann_function
+*/
+var recur = 0;
+function A(m, n) {
+    recur++;
+    if (m == 0)
+        return (n + 1);
+    if (m > 0 && n ==0)
+        return A(m-1, 1)
+    return A(m-1, A(m,n-1))
+}
+
+plan({tests: 2})
+
+A = memoize(A)
+
+var r
+try {
+    r = A(3,1)
+    is(recur, 32, "Number of callings to A() reduced to 32");
+} catch(e) {
+    skip("A(3,1) is too heavy for you js engine", 1)
+}
+
+var r
+try {
+    recur = 0;
+    r = A(4,1)
+    ok("Congrads, You survived from A(4,1). With A(4,1) = " + r + " and the number of callings to A() is " + recur)
+} catch(e) {
+    skip("A(4,1) is too heavy for you js engine", 1)
+}
+
+    </script>
+  </body>
+</html>
