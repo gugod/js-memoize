@@ -1,0 +1,12 @@
+Memoize is a way to cache function's return value according to its arguments.
+This distribution tries to inherit the sprit of Memoriz.pm from Perl, to make
+such common routine easy to use.
+
+Memoize speeds up your program in trad of memory space. However, the memory
+consumption of a client-side javascript implementation is difficult to know,
+so there's no benchmark for this distribution for now. But the saving of
+numbers of calling the origial function could be calculated easily. Read tests
+under t/ directory for such information.
+
+Cheers,
+Kang-min Liu

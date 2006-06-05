@@ -1,3 +1,4 @@
+Changes
 doc/html/Memoize.html
 doc/pod/Memoize.pod
 doc/text/Memoize.txt
@@ -5,12 +6,13 @@ lib/Memoize.js
 Makefile.PL
 MANIFEST			This list of files
 META.yml
-test/fib.html
-test/index.html
-test/lib/JSAN.js
-test/lib/Test/Builder.js
-test/lib/Test/Harness.js
-test/lib/Test/Harness/Browser.js
-test/lib/Test/Harness/Director.js
-test/lib/Test/More.js
-test/lib/Test/Simple.js
+README
+t/fib.html
+t/index.html
+t/lib/JSAN.js
+t/lib/Test/Builder.js
+t/lib/Test/Harness.js
+t/lib/Test/Harness/Browser.js
+t/lib/Test/Harness/Director.js
+t/lib/Test/More.js
+t/lib/Test/Simple.js
