@@ -1,0 +1,8 @@
+{
+          'build_requires' => {},
+          'conflicts' => {},
+          'requires' => {
+                          'JSAN' => '0.1'
+                        },
+          'recommends' => {}
+        }

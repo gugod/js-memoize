@@ -1,0 +1,14 @@
+---
+name: Memoize
+version: 0.01
+author:
+  - 'Kang-min Liu <gugod@gugod.org>'
+abstract: Make functions faster by trading space for time
+license: perl
+requires:
+  JSAN: 0.1
+provides:
+  Memoize:
+    file: lib/Memoize.js
+    version: 0.01
+generated_by: Module::Build version 0.2611

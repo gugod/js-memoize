@@ -1,0 +1,13 @@
+lib/Memoize.js
+Makefile.PL
+MANIFEST			This list of files
+test/fib.html
+test/index.html
+test/lib/JSAN.js
+test/lib/Test/Builder.js
+test/lib/Test/Harness.js
+test/lib/Test/Harness/Browser.js
+test/lib/Test/Harness/Director.js
+test/lib/Test/More.js
+test/lib/Test/Simple.js
+META.yml

@@ -1,0 +1,39 @@
+#! /usr/bin/perl
+
+use strict;
+use Cwd;
+use File::Spec;
+
+BEGIN {
+  $^W = 1;  # Use warnings
+  my $curdir = File::Spec->canonpath( Cwd::cwd() );
+  my $is_same_dir = $^O eq 'MSWin32' ? (Win32::GetShortPathName($curdir) eq '/Users/gugod/dev/kwiki/js/Memoize')
+                                       : ($curdir eq '/Users/gugod/dev/kwiki/js/Memoize');
+  unless ($is_same_dir) {
+    die ('This script must be run from /Users/gugod/dev/kwiki/js/Memoize, not '.$curdir."\n".
+	 "Please re-run the Build.PL script here.\n");
+  }
+  unshift @INC,
+    (
+
+    );
+}
+
+use Module::Build::JSAN;
+
+# Some platforms have problems setting $^X in shebang contexts, fix it up here
+$^X = Module::Build->find_perl_interpreter
+  unless File::Spec->file_name_is_absolute($^X);
+
+if (-e 'Build.PL' and not Module::Build::JSAN->up_to_date("Build.PL", $0)) {
+   warn "Warning: Build.PL has been altered.  You may need to run 'perl Build.PL' again.\n";
+}
+
+# This should have just enough arguments to be able to bootstrap the rest.
+my $build = Module::Build::JSAN->resume (
+  properties => {
+    config_dir => '/Users/gugod/dev/kwiki/js/Memoize/_build',
+  },
+);
+
+$build->dispatch;

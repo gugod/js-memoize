@@ -1,0 +1,10 @@
+{
+          'doc/pod' => 1,
+          'doc/text' => 1,
+          'doc/html' => 1,
+          'META.json' => 1,
+          '*.gz' => 1,
+          'blib' => 1,
+          'MANIFEST.bak' => 1,
+          'Memoize-0.01' => 1
+        }
