@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/JSAN.js"> </script>
+
+  </head>
+  <body>
+    <pre id="test"></pre>
+
+    <script type="text/javascript">
+JSAN.includePath = ["../lib", "lib"];
+JSAN.use("Test.Harness.Browser");
+new Test.Harness.Browser('JSAN.js')
+.runTests(
+          'fib.html'
+          );
+
+           </script>
+  </body>
+</html>

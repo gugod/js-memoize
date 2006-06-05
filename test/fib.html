@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/JSAN.js"> </script>
+
+  </head>
+  <body>
+    <pre id="test"></pre>
+
+    <script type="text/javascript">
+JSAN.includePath = ["../lib", "lib"];
+JSAN.use("Memoize");
+JSAN.use("Test.More");
+
+plan({tests: 3});
+
+var recur=0;
+function fib(n) {
+    recur++;
+    if(n < 2)
+        return 1;
+    return fib(n-1) + fib(n-2);
+}
+
+fib = memoize(fib);
+
+recur = 0;
+var r = fib(4);
+/*
+fib(4)
+= fib(3) + fib(2)
+= fib(2) + fib(1) + fib(1) + fib(0)
+= fib(1) + fib(0) + 1 + 1 + 1
+
+Without memoizing, fib(4) increase recur 9 times.
+With memoizing, fib(4) incrase recur 4 times
+*/
+
+is(r, 5, "fib(4) = 5")
+is(recur, 5, "Reduce number of recursions from 9 to 5")
+
+// Large value test           
+is( fib(50), 20365011074, "fib(50) = 20365011074");
+
+
+           </script>
+  </body>
+</html>
